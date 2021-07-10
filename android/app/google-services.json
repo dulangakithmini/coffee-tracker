@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "997604323611",
+    "project_id": "coffeecrew-3193f",
+    "storage_bucket": "coffeecrew-3193f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997604323611:android:bf77af38fbf3788c1c63be",
+        "android_client_info": {
+          "package_name": "com.dulanga.coffee_crew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997604323611-79jnt60k758e81782tg694p4tahcavnb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYFzgZrwx4zxqzEQChJcdZl8ZXP5XqYEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997604323611-79jnt60k758e81782tg694p4tahcavnb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
