@@ -1,4 +1,4 @@
-import 'package:coffee_crew/services/auth.dart';
+import 'package:coffee_crew/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
