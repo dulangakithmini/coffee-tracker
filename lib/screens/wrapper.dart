@@ -5,6 +5,8 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// return either home or aythentication
-    return AuthenticationScreen();
+    return MaterialApp(
+      home: AuthenticationScreen(),
+    );
   }
 }

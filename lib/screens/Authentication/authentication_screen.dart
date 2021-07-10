@@ -1,3 +1,4 @@
+import 'package:coffee_crew/screens/Authentication/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class AuthenticationScreen extends StatefulWidget {
@@ -8,13 +9,6 @@ class AuthenticationScreen extends StatefulWidget {
 class _AuthenticationScreenState extends State<AuthenticationScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Authenticate'),
-        ),
-        body: Text('Authenticate'),
-      ),
-    );
+    return SignIn();
   }
 }
