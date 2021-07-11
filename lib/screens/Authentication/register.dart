@@ -13,6 +13,8 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
 
+  final _formKey = GlobalKey<FormState>();
+
   /// States of the TextFormFields
   String email = '';
   String password = '';
@@ -41,9 +43,11 @@ class _RegisterState extends State<Register> {
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
+          key: _formKey,
           child: Column(
             children: [
               TextFormField(
+                validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() {
                     email = val;
@@ -51,6 +55,9 @@ class _RegisterState extends State<Register> {
                 },
               ),
               TextFormField(
+                validator: (val) => val.length < 6
+                    ? 'Enter a password with at least 7 characters'
+                    : null,
                 onChanged: (val) {
                   setState(() {
                     password = val;
@@ -70,8 +77,11 @@ class _RegisterState extends State<Register> {
                   primary: Colors.pink[400],
                 ),
                 onPressed: () async {
-                  print(email);
-                  print(password);
+                  /// validate the current values in the form
+                  if (_formKey.currentState.validate()) {
+                    print(email);
+                    print(password);
+                  }
                 },
               ),
               // ElevatedButton(
