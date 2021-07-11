@@ -2,6 +2,10 @@ import 'package:coffee_crew/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
+  final Function toggleView;
+
+  Register({this.toggleView});
+
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -23,7 +27,9 @@ class _RegisterState extends State<Register> {
         title: Text('Sign up to Coffee Crew'),
         actions: <Widget>[
           OutlinedButton.icon(
-            onPressed: () async {},
+            onPressed: () async {
+              widget.toggleView();
+            },
             icon: Icon(Icons.person),
             label: Text('Sign In'),
             style: OutlinedButton.styleFrom(
