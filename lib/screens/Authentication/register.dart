@@ -21,6 +21,16 @@ class _RegisterState extends State<Register> {
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
         title: Text('Sign up to Coffee Crew'),
+        actions: <Widget>[
+          OutlinedButton.icon(
+            onPressed: () async {},
+            icon: Icon(Icons.person),
+            label: Text('Sign In'),
+            style: OutlinedButton.styleFrom(
+              primary: Colors.black,
+            ),
+          ),
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
