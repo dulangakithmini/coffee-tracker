@@ -1,12 +1,12 @@
 import 'package:coffee_crew/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
 
   /// States of the TextFormFields
@@ -20,17 +20,7 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text('Sign in to Coffee Crew'),
-        actions: <Widget>[
-          OutlinedButton.icon(
-            onPressed: () async {},
-            icon: Icon(Icons.person),
-            label: Text('Register'),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.black,
-            ),
-          ),
-        ],
+        title: Text('Sign up to Coffee Crew'),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
@@ -55,7 +45,7 @@ class _SignInState extends State<SignIn> {
               SizedBox(height: 20.0),
               ElevatedButton(
                 child: Text(
-                  'Sign in',
+                  'Register',
                   style: TextStyle(
                     fontSize: 17,
                   ),
