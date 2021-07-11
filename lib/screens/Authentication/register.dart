@@ -18,6 +18,7 @@ class _RegisterState extends State<Register> {
   /// States of the TextFormFields
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -79,11 +80,23 @@ class _RegisterState extends State<Register> {
                 onPressed: () async {
                   /// validate the current values in the form
                   if (_formKey.currentState.validate()) {
-                    print(email);
-                    print(password);
+                    dynamic result = await _auth.registerWithEmailAndPassword(
+                        email, password);
+                    if (result == null) {
+                      setState(() {
+                        error = 'Please enter a valid email';
+                      });
+                    }
                   }
                 },
               ),
+              SizedBox(
+                height: 12,
+              ),
+              Text(
+                error,
+                style: TextStyle(color: Colors.red, fontSize: 14),
+              )
               // ElevatedButton(
               //   child: Text(
               //     'Sign in Anonymously',
