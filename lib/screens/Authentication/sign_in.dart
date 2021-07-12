@@ -76,13 +76,13 @@ class _SignInState extends State<SignIn> {
                 ),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
-                    // dynamic result = await _auth.registerWithEmailAndPassword(
-                    //     email, password);
-                    // if (result == null) {
-                    //   setState(() {
-                    //     error = 'Please enter a valid email';
-                    //   });
-                    // }
+                    dynamic result =
+                        await _auth.signInWithEmailAndPassword(email, password);
+                    if (result == null) {
+                      setState(() {
+                        error = 'Could not sign in with those credentials';
+                      });
+                    }
                   }
                 },
               ),
