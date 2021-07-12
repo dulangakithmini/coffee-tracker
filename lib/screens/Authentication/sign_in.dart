@@ -49,7 +49,8 @@ class _SignInState extends State<SignIn> {
             child: Column(
               children: [
                 TextFormField(
-                  decoration: textInputDecoration,
+                  decoration:
+                      textInputDecoration.copyWith(hintText: 'Email Address'),
                   validator: (val) => val.isEmpty ? 'Enter an email' : null,
                   onChanged: (val) {
                     setState(() {
@@ -58,7 +59,8 @@ class _SignInState extends State<SignIn> {
                   },
                 ),
                 TextFormField(
-                  decoration: textInputDecoration,
+                  decoration:
+                      textInputDecoration.copyWith(hintText: 'Password'),
                   validator: (val) => val.isEmpty ? 'Enter an email' : null,
                   onChanged: (val) {
                     setState(() {
