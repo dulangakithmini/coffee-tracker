@@ -48,6 +48,9 @@ class _RegisterState extends State<Register> {
           child: Column(
             children: [
               TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Email Address',
+                ),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() {
@@ -56,6 +59,9 @@ class _RegisterState extends State<Register> {
                 },
               ),
               TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                ),
                 validator: (val) => val.length < 6
                     ? 'Enter a password with at least 7 characters'
                     : null,

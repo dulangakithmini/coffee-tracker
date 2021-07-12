@@ -47,6 +47,19 @@ class _SignInState extends State<SignIn> {
           child: Column(
             children: [
               TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Email Address',
+
+                  /// Background colour of the text field
+                  fillColor: Colors.white,
+                  filled: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white, width: 2.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.pink, width: 2.0),
+                  ),
+                ),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() {
@@ -55,6 +68,17 @@ class _SignInState extends State<SignIn> {
                 },
               ),
               TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  fillColor: Colors.white,
+                  filled: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white, width: 2.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.pink, width: 2.0),
+                  ),
+                ),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() {
@@ -64,27 +88,29 @@ class _SignInState extends State<SignIn> {
                 obscureText: true,
               ),
               SizedBox(height: 20.0),
-              ElevatedButton(
-                child: Text(
-                  'Sign in',
-                  style: TextStyle(
-                    fontSize: 17,
+              Expanded(
+                child: ElevatedButton(
+                  child: Text(
+                    'Sign in',
+                    style: TextStyle(
+                        // fontSize: 17,
+                        ),
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.pink[400],
-                ),
-                onPressed: () async {
-                  if (_formKey.currentState.validate()) {
-                    dynamic result =
-                        await _auth.signInWithEmailAndPassword(email, password);
-                    if (result == null) {
-                      setState(() {
-                        error = 'Could not sign in with those credentials';
-                      });
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.pink[400],
+                  ),
+                  onPressed: () async {
+                    if (_formKey.currentState.validate()) {
+                      dynamic result = await _auth.signInWithEmailAndPassword(
+                          email, password);
+                      if (result == null) {
+                        setState(() {
+                          error = 'Could not sign in with those credentials';
+                        });
+                      }
                     }
-                  }
-                },
+                  },
+                ),
               ),
               SizedBox(
                 height: 12,
