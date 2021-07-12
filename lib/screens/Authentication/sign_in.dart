@@ -12,10 +12,12 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   /// States of the TextFormFields
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +43,11 @@ class _SignInState extends State<SignIn> {
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
+          key: _formKey,
           child: Column(
             children: [
               TextFormField(
+                validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() {
                     email = val;
@@ -51,6 +55,7 @@ class _SignInState extends State<SignIn> {
                 },
               ),
               TextFormField(
+                validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() {
                     password = val;
@@ -70,10 +75,24 @@ class _SignInState extends State<SignIn> {
                   primary: Colors.pink[400],
                 ),
                 onPressed: () async {
-                  print(email);
-                  print(password);
+                  if (_formKey.currentState.validate()) {
+                    // dynamic result = await _auth.registerWithEmailAndPassword(
+                    //     email, password);
+                    // if (result == null) {
+                    //   setState(() {
+                    //     error = 'Please enter a valid email';
+                    //   });
+                    // }
+                  }
                 },
               ),
+              SizedBox(
+                height: 12,
+              ),
+              Text(
+                error,
+                style: TextStyle(color: Colors.red, fontSize: 14),
+              )
               // ElevatedButton(
               //   child: Text(
               //     'Sign in Anonymously',
