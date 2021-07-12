@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 const textInputDecoration = InputDecoration(
   hintText: 'Password',
+
+  /// Background colour of the text field
   fillColor: Colors.white,
   filled: true,
   enabledBorder: OutlineInputBorder(

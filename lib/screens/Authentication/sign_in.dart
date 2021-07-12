@@ -1,4 +1,5 @@
 import 'package:coffee_crew/services/auth_service.dart';
+import 'package:coffee_crew/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -44,52 +45,30 @@ class _SignInState extends State<SignIn> {
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
           key: _formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Email Address',
-
-                  /// Background colour of the text field
-                  fillColor: Colors.white,
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 2.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pink, width: 2.0),
-                  ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: textInputDecoration,
+                  validator: (val) => val.isEmpty ? 'Enter an email' : null,
+                  onChanged: (val) {
+                    setState(() {
+                      email = val;
+                    });
+                  },
                 ),
-                validator: (val) => val.isEmpty ? 'Enter an email' : null,
-                onChanged: (val) {
-                  setState(() {
-                    email = val;
-                  });
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  fillColor: Colors.white,
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 2.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pink, width: 2.0),
-                  ),
+                TextFormField(
+                  decoration: textInputDecoration,
+                  validator: (val) => val.isEmpty ? 'Enter an email' : null,
+                  onChanged: (val) {
+                    setState(() {
+                      password = val;
+                    });
+                  },
+                  obscureText: true,
                 ),
-                validator: (val) => val.isEmpty ? 'Enter an email' : null,
-                onChanged: (val) {
-                  setState(() {
-                    password = val;
-                  });
-                },
-                obscureText: true,
-              ),
-              SizedBox(height: 20.0),
-              Expanded(
-                child: ElevatedButton(
+                SizedBox(height: 20.0),
+                ElevatedButton(
                   child: Text(
                     'Sign in',
                     style: TextStyle(
@@ -111,37 +90,37 @@ class _SignInState extends State<SignIn> {
                     }
                   },
                 ),
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              Text(
-                error,
-                style: TextStyle(color: Colors.red, fontSize: 14),
-              )
-              // ElevatedButton(
-              //   child: Text(
-              //     'Sign in Anonymously',
-              //     style: TextStyle(
-              //       fontSize: 17,
-              //       color: Colors.black,
-              //       fontWeight: FontWeight.w600,
-              //     ),
-              //   ),
-              //   style: ElevatedButton.styleFrom(
-              //     primary: Colors.white,
-              //   ),
-              //   onPressed: () async {
-              //     dynamic result = await _auth.signInAnon();
-              //     if (result == null) {
-              //       print('Error signing in!');
-              //     } else {
-              //       print('signed in');
-              //       print(result);
-              //     }
-              //   },
-              // ),
-            ],
+                SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  error,
+                  style: TextStyle(color: Colors.red, fontSize: 14),
+                )
+                // ElevatedButton(
+                //   child: Text(
+                //     'Sign in Anonymously',
+                //     style: TextStyle(
+                //       fontSize: 17,
+                //       color: Colors.black,
+                //       fontWeight: FontWeight.w600,
+                //     ),
+                //   ),
+                //   style: ElevatedButton.styleFrom(
+                //     primary: Colors.white,
+                //   ),
+                //   onPressed: () async {
+                //     dynamic result = await _auth.signInAnon();
+                //     if (result == null) {
+                //       print('Error signing in!');
+                //     } else {
+                //       print('signed in');
+                //       print(result);
+                //     }
+                //   },
+                // ),
+              ],
+            ),
           ),
         ),
       ),
